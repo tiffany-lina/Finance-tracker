@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles/main.css">
+<title>Student Finance Tracker</title>
+</head>
+<body>
+<header>
+  <h1>Finance Tracker</h1>
+</header>
+<main>
+  <input type="text" id="search" placeholder="Search regex..." />
+  <table>
+    <thead>
+      <tr>
+        <th>Description <button class="sort-btn" data-field="description" data-asc="true">↑</button></th>
+        <th>Amount <button class="sort-btn" data-field="amount" data-asc="true">↑</button></th>
+        <th>Category</th>
+        <th>Date <button class="sort-btn" data-field="date" data-asc="true">↑</button></th>
+      </tr>
+    </thead>
+    <tbody id="records-body"></tbody>
+  </table>
+</main>
+<script type="module">
+import { init } from './scripts/storage.js';
+import { renderTable } from './scripts/ui.js';
+
+await init();
+renderTable();
+</script>
+<section id="dashboard">
+  <h2>Dashboard</h2>
+  <p>Total Records: <span id="total-records">0</span></p>
+  <p>Total Amount: <span id="total-amount">0.00</span></p>
+  <p>Top Category: <span id="top-category">-</span></p>
+  <p>
+    Cap: <input type="number" id="cap" value="200" /> |
+    Remaining: <span id="remaining" aria-live="polite">0.00</span>
+  </p>
+</section>
+<section id="import-export">
+  <h2>Import/Export JSON</h2>
+  <input type="file" id="import-file" accept=".json" />
+  <button id="export-btn">Export JSON</button>
+</section>
+
+<section id="settings">
+  <h2>Settings</h2>
+  <label>Cap: <input type="number" id="cap-setting" value="200" /></label>
+  <label>Currency: <input type="text" id="currency-setting" value="USD" /></label>
+  <label>Unit: <input type="text" id="unit-setting" value="minutes" /></label>
+  <button id="save-settings-btn">Save Settings</button>
+</section>
+</body>
+</html>
