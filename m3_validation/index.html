@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M3 Form Validation</title>
+<link rel="stylesheet" href="styles/form.css">
+</head>
+<body>
+<main>
+  <h1>Form Validation Demo (M3)</h1>
+  <form id="recordForm" novalidate>
+    <label>
+      Description:
+      <input type="text" name="description" required>
+      <span class="error" aria-live="polite"></span>
+    </label>
+
+    <label>
+      Amount / Duration / Pages:
+      <input type="text" name="numeric" required>
+      <span class="error" aria-live="polite"></span>
+    </label>
+
+    <label>
+      Date (YYYY-MM-DD):
+      <input type="text" name="date" required>
+      <span class="error" aria-live="polite"></span>
+    </label>
+
+    <label>
+      Category / Tag:
+      <input type="text" name="category" required>
+      <span class="error" aria-live="polite"></span>
+    </label>
+
+    <button type="submit">Submit</button>
+  </form>
+</main>
+<script type="module" src="scripts/app.js"></script>
+</body>
+</html>

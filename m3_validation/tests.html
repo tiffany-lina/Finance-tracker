@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>M3 Tests</title>
+</head>
+<body>
+<script type="module">
+import { validate } from './scripts/validators.js';
+
+console.assert(validate('description', 'Hello World') === true, 'Valid description failed');
+console.assert(validate('description', 'Hello  Hello') === false, 'Duplicate word not caught');
+console.assert(validate('numeric', '12.34') === true, 'Valid numeric failed');
+console.assert(validate('numeric', '12.345') === false, 'Too many decimals passed');
+console.assert(validate('date', '2025-09-29') === true, 'Valid date failed');
+console.assert(validate('date', '2025-13-01') === false, 'Invalid month passed');
+console.assert(validate('category', 'Food-Drinks') === true, 'Valid category failed');
+
+console.log('✅ M3 tests complete');
+</script>
+</body>
+</html>
